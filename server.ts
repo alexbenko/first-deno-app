@@ -1,20 +1,21 @@
 //oak is a popular http middleware
-
-import { Application } from 'https://deno.land/x/oak/mod.ts';
-import { router } from "./routes.ts";
+import { Application, Router } from 'https://deno.land/x/oak/mod.ts'
+//import { router } from "./routes.ts";
 
 const env = Deno.env.toObject()
-const PORT = env.PORT || 4000;
-const HOST = env.HOST || '127.0.0.1';
+const PORT = env.PORT || 4200
+const HOST = env.HOST || '127.0.0.1'
 
-const app = new Application();
+const router = new Router()
 
-app.use(router.routes());
-app.use(router.allowedMethods());
+const app = new Application()
 
-console.log(`Listening on port ${PORT}...`);
+app.use(router.routes())
+app.use(router.allowedMethods())
 
-await app.listen(`${HOST}:${PORT}`);
+console.log(`Listening on port ${PORT}...`)
+
+await app.listen(`${HOST}:${PORT}`)
 
 //start server by typing the below in the command line:
 //deno run — allow-env — allow-net server.ts
