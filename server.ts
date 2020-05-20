@@ -17,4 +17,4 @@ console.log(`Listening on port ${PORT}...`);
 await app.listen(`${HOST}:${PORT}`);
 
 //start server by typing the below in the command line:
-//deno run — allow-env — allow-net app.ts
+//deno run — allow-env — allow-net server.ts
